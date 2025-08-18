@@ -366,6 +366,87 @@
             color: var(--sumi-black);
         }
 
+        /* Head Instructor Card */
+        .instructor-card {
+            background: var(--paper-white);
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px var(--subtle-shadow);
+            border-left: 4px solid var(--deep-indigo);
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .instructor-card .title {
+            font-size: 1rem;
+            color: var(--deep-indigo);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .instructor-card .name {
+            font-size: 2rem;
+            color: var(--sumi-black);
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .instructor-card .credentials {
+            text-align: center;
+        }
+
+        .instructor-card .credential {
+            margin-bottom: 1.2rem;
+        }
+
+        .instructor-card .credential:last-child {
+            margin-bottom: 0;
+        }
+
+        .instructor-card .rank {
+            font-size: 1.1rem;
+            color: var(--matcha-green);
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .instructor-card .federation {
+            font-size: 0.9rem;
+            color: var(--silver-gray);
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .instructor-card .federation .school {
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .instructor-card .federation .japanese-text {
+            display: block;
+            margin-top: 0.2rem;
+            font-size: 0.85rem;
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            padding: 4rem 2rem;
+            background: var(--matcha-accent);
+        }
+
+        .philosophy-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .philosophy .philosophy-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
         /* Crossed Swords Graphic - COMMENTED OUT FOR LATER USE
         .crossed-swords {
             display: flex;
@@ -569,6 +650,7 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#philosophy">Philosophy</a></li>
                 <li><a href="#classes">Classes</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -615,6 +697,56 @@
                     <p>At Seikōkan, we practice the authentic techniques of Toyama-ryu (戸山流), a practical sword school with roots in real combat application. Originally developed for military training, Toyama-ryu emphasizes efficient, effective technique while maintaining the spiritual depth of traditional Japanese martial arts.</p>
                     <p>Our training balances the practical heritage of this fighting system with the character development and philosophical insights that make Japanese swordsmanship a lifelong path of learning.</p>
                 </div>
+
+                <div class="instructor-card fade-in">
+                    <div class="title">Head Instructor</div>
+                    <div class="name">Roger Browning</div>
+                    <div class="credentials">
+                        <div class="credential">
+                            <div class="rank">5th Dan :: 五段</div>
+                            <div class="federation">
+                                All Japan Toyama-ryu Iaido Federation
+                                <span class="japanese-text">全日本戸山流居合道連盟</span>
+                            </div>
+                        </div>
+                        <div class="credential">
+                            <div class="rank">2nd Dan :: 二段</div>
+                            <div class="federation">
+                                Seizankai, Machida Japan
+                                <span class="japanese-text">誠斬會、町田市東京都</span>
+                            </div>
+                        </div>
+                        <div class="credential">
+                            <div class="rank">2nd Dan :: 二段</div>
+                            <div class="federation">
+                                <span class="school">Tamiya-ryu :: 田宮流</span>
+                                Gisenkai, Shimomeguro, Tokyo
+                                <span class="japanese-text">義仙会、下目黒東京都</span>
+                            </div>
+                        </div>
+                        <div class="credential">
+                            <div class="rank">3rd Dan :: 三段</div>
+                            <div class="federation">
+                                <span class="school">Chito-ryu Karate :: 千唐流空手道</span>
+                                All Kyūshū Karate Association, Kitakyūshū, Fukuoka, Japan
+                                <span class="japanese-text">全九州空手道連合会、北九州市福岡県</span>
+                            </div>
+                        </div>
+                        <div class="credential">
+                            <div class="rank">Black Sash :: Instructor</div>
+                            <div class="federation">
+                                <span class="school">San Bao Pai Kung Fu</span>
+                                Orlando, Florida
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="philosophy" class="philosophy">
+            <h2 class="section-title">Our Philosophy</h2>
+            <div class="philosophy-content">
                 <div class="philosophy-cards">
                     <div class="philosophy-card fade-in">
                         <span class="kanji japanese-text">誠</span>
@@ -678,18 +810,17 @@
     <div id="contact" class="contact">
         <div class="contact-content">
             <div class="contact-info fade-in">
-                <h3>Visit Our Dojo</h3>
-                <p><strong>Address:</strong><br>
-                123 Harmony Street<br>
-                Your City, State 12345</p>
-                
+                <h3>Dojo Information</h3>
+                <!-- <p><strong>Address:</strong><br>
+                Sasaki Judo<br>
+                3385 S US Hwy 17-92<br>
+                Casselberry, FL&nbsp;&nbsp;32702</p> -->
+
                 <p><strong>Training Schedule:</strong><br>
-                Monday & Wednesday: 7:00 PM - 8:30 PM<br>
-                Saturday: 10:00 AM - 12:00 PM</p>
+                Sunday: 10:00 AM - 12:00 PM</p>
                 
                 <p><strong>Contact:</strong><br>
-                Email: info@seikokan-dojo.com<br>
-                Phone: (555) 123-4567</p>
+                Email: seikokan_toyamaryu@icloud.com<br>
             </div>
             <div class="fade-in">
                 <h3>Begin Your Journey</h3>
