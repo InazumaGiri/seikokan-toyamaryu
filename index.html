@@ -30,7 +30,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         /* Background Elements */
@@ -173,6 +173,11 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            body {
+                align-items: flex-start;
+                padding-top: 2rem;
+            }
+            
             .container {
                 margin: 1rem;
                 padding: 1.5rem;
@@ -189,6 +194,10 @@
         }
 
         @media (max-width: 480px) {
+            body {
+                padding-top: 1rem;
+            }
+            
             .container {
                 margin: 0.5rem;
                 padding: 1rem;
