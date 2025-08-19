@@ -385,6 +385,17 @@
             margin-bottom: 0.5rem;
         }
 
+        .instructor-card .photo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin: 1rem auto 1.5rem;
+            border: 3px solid var(--deep-indigo);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            object-fit: cover;
+            display: block;
+        }
+
         .instructor-card .name {
             font-size: 2rem;
             color: var(--sumi-black);
@@ -442,9 +453,26 @@
 
         .philosophy .philosophy-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 3rem;
             margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Responsive adjustments for philosophy cards */
+        @media (max-width: 1200px) {
+            .philosophy .philosophy-cards {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .philosophy .philosophy-cards {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
         }
 
         /* Crossed Swords Graphic - COMMENTED OUT FOR LATER USE
@@ -664,7 +692,7 @@
                     <span class="kanji-large japanese-text">誠光館</span>
                     <h1>Seikōkan</h1>
                     <p class="subtitle">Toyama-ryu | 戸山流</p>
-                    <p>Traditional Toyama-ryu swordsmanship rooted in authentic samurai tradition. Our dojo preserves the practical techniques developed by the Imperial Japanese Army while honoring the deeper principles of discipline, respect, and personal growth through the way of the sword.</p>
+                    <p>Traditional Toyama-ryu swordsmanship rooted in the tradition of Budo. Our dojo preserves the practical techniques developed by the founders of Toyama-ryu while honoring the deeper principles of discipline, respect, and personal growth through the way of the sword.</p>
                     <a href="#classes" class="cta-button">Begin Your Journey</a>
                 </div>
                 <div class="hero-visual fade-in">
@@ -700,6 +728,7 @@
 
                 <div class="instructor-card fade-in">
                     <div class="title">Head Instructor</div>
+                    <img src="images/Instructor.png" alt="Roger Browning - Head Instructor" class="photo">
                     <div class="name">Roger Browning</div>
                     <div class="credentials">
                         <div class="credential">
@@ -712,7 +741,8 @@
                         <div class="credential">
                             <div class="rank">2nd Dan :: 二段</div>
                             <div class="federation">
-                                Seizankai, Machida Japan
+                                <span class="school">Toyama-ryu :: 戸山流</span>
+                                Seizankai :: Machida, Tokyo, Japan
                                 <span class="japanese-text">誠斬會、町田市東京都</span>
                             </div>
                         </div>
@@ -720,7 +750,7 @@
                             <div class="rank">2nd Dan :: 二段</div>
                             <div class="federation">
                                 <span class="school">Tamiya-ryu :: 田宮流</span>
-                                Gisenkai, Shimomeguro, Tokyo
+                                Gisenkai :: Shimomeguro, Tokyo, Japan
                                 <span class="japanese-text">義仙会、下目黒東京都</span>
                             </div>
                         </div>
@@ -758,6 +788,11 @@
                         <h4>Tanren - Forging</h4>
                         <p>Through disciplined practice and repetition, we forge both our technique and spirit. Like steel refined in fire, continuous training transforms raw potential into mastery.</p>
                     </div>
+                    <div class="philosophy-card fade-in">
+                        <span class="kanji japanese-text">魂</span>
+                        <h4>Tamashii - Spirit</h4>
+                        <p>The warrior's spirit transcends technique and form. Through years of dedicated practice, we cultivate an indomitable spirit that remains calm in chaos, finds strength in adversity, and embodies the timeless essence of Budō.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -789,19 +824,19 @@
             <div class="classes-grid">
                 <div class="class-card fade-in">
                     <h3>Kihon - Foundation</h3>
-                    <p>Introduction to Toyama-ryu basics: proper grip, stance, and fundamental cutting techniques. Learn traditional etiquette and the philosophical foundations of our practice.</p>
+                    <p>Introduction to Toyama-ryu basics: wearing a sword, drawing a sword, stances, sheathing a sword, and fundamental cutting techniques. Learn traditional etiquette and the philosophical foundations of our practice.</p>
                 </div>
                 <div class="class-card fade-in">
                     <h3>Kata & Tameshigiri</h3>
-                    <p>Development of classical forms and test cutting practice. Students refine technique through solo kata and practical cutting exercises on traditional targets.</p>
+                    <p>Classical forms (kata) and test cutting practice (tameshigiri). Students refine technique through solo kata and practical cutting exercises using wara (straw mats).</p>
                 </div>
                 <div class="class-card fade-in">
                     <h3>Kumitachi</h3>
-                    <p>Partner practice developing timing, distance, and tactical awareness. Beginners train with wooden swords (bokken) and blunted steel, gradually progressing to sharp swords as skills and control advance. Learn to apply techniques through controlled sparring and prearranged exercises.</p>
+                    <p>Partner practice developing timing, distance, and tactical awareness. Beginners train with wooden swords (bokken). Once some proficiency is achieved, students can use mogitō (non-sharp metal swords) to practice. Eventually, practitioners progress to sharp swords as skills and control advance.</p>
                 </div>
                 <div class="class-card fade-in">
                     <h3>Advanced Applications</h3>
-                    <p>Deep study of combat applications, advanced kata, and teaching methodology. Focus on understanding the practical heritage and leadership within our community.</p>
+                    <p>Deep study of sword combat applications, advanced kata interpretation, advanced tameshigiri, and teaching methodology.</p>
                 </div>
             </div>
         </section>
