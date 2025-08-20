@@ -1,4 +1,4 @@
-# macOS system files
+# macOS
 .DS_Store
 .DS_Store?
 ._*
@@ -8,26 +8,17 @@ ehthumbs.db
 Thumbs.db
 
 # Editor files
-.vscode/
+.vscode/settings.json
 .idea/
 *.swp
 *.swo
 *~
 
-# Node modules (if you add Node.js later)
-node_modules/
-npm-debug.log*
-
-# Logs
-*.log
-
-# Environment files
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
 # Temporary files
 *.tmp
 *.temp
+*.log
+
+# Backup files
+*.bak
+*.backup

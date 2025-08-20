@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seikōkan 誠光館 - Under Construction</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>誠光館 | Seikōkan Dojo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" crossorigin="anonymous">
     <style>
         :root {
-            --primary-gold: #D4AF37;
-            --deep-red: #8B0000;
-            --cream: #F5F5DC;
-            --charcoal: #2F2F2F;
-            --black: #000000;
+            --sumi-black: #2c2c2c;
+            --warm-white: #fafafa;
+            --silver-gray: #8a8a8a;
+            --deep-indigo: #1a365d;
+            --matcha-green: #4a5d23;
+            --light-matcha: #6b7c3a;
+            --matcha-accent: rgba(74, 93, 35, 0.1);
+            --paper-white: #ffffff;
+            --subtle-shadow: rgba(0, 0, 0, 0.08);
         }
 
         * {
@@ -21,227 +29,900 @@
         }
 
         body {
-            font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho Pro', serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            color: var(--charcoal);
-            background: linear-gradient(135deg, var(--cream) 0%, #E8E8E8 100%);
+            color: var(--sumi-black);
+            background: var(--warm-white);
+        }
+
+        .japanese-text {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--sumi-black);
+        }
+
+        .logo .kamon {
+            width: 4.5rem;
+            height: 4.5rem;
+            filter: brightness(0) saturate(100%) invert(0%);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--sumi-black);
+            font-weight: 400;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--matcha-green);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--matcha-green);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            overflow-x: hidden;
+            background: linear-gradient(135deg, var(--warm-white) 0%, var(--matcha-accent) 100%);
+            overflow: hidden;
         }
 
-        /* Background Elements */
-        body::before {
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
             right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(139, 0, 0, 0.05) 0%, transparent 50%);
-            pointer-events: none;
+            width: 50%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(74,93,35,0.05)"/></svg>') repeat;
+            background-size: 60px 60px;
         }
 
-        /* Main Container */
-        .container {
-            text-align: center;
-            max-width: 600px;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        /* Japanese character column container */
+        .japanese-characters {
+            position: absolute;
+            top: 8%;
+            right: 150px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            z-index: 3;
+        }
+
+        .japanese-characters .character {
+            width: 180px;
+            height: 180px;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.9;
+        }
+
+        .japanese-characters .makoto { background-image: url('images/makoto_sei_scan.png'); }
+        .japanese-characters .hikari { background-image: url('images/hikari_ko_scan.png'); }
+        .japanese-characters .kan { background-image: url('images/kan_scan.png'); }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 0.8fr;
+            gap: 1rem;
+            align-items: center;
             position: relative;
             z-index: 2;
         }
 
-        /* Kamon (Family Crest) */
-        .kamon {
-            width: 100px;
-            height: 100px;
-            background-image: url('images/kamon_vector.svg');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            margin: 0 auto 2rem;
-            opacity: 0.8;
-        }
-
-        /* Typography */
-        .dojo-name {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 700;
-            color: var(--deep-red);
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: var(--sumi-black);
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            letter-spacing: 0.05em;
+            line-height: 1.2;
         }
 
-        .japanese-subtitle {
-            font-size: clamp(1.2rem, 3vw, 2rem);
-            color: var(--primary-gold);
+        .hero-text .kanji-large {
+            font-size: 4rem;
+            color: var(--matcha-green);
+            font-weight: 400;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho Pro', 'MS PMincho', 'serif';
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.75rem;
+            color: var(--silver-gray);
             margin-bottom: 2rem;
-            font-weight: 500;
+            font-weight: 300;
         }
 
-        .construction-message {
-            font-size: 1.3rem;
-            color: var(--charcoal);
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-        }
-
-        .description {
+        .hero-text p {
+            color: var(--silver-gray);
             font-size: 1.1rem;
-            color: var(--charcoal);
+            margin-bottom: 2.5rem;
             line-height: 1.7;
-            margin-bottom: 2rem;
-            opacity: 0.8;
         }
 
-        .coming-soon {
-            font-size: 1rem;
-            color: var(--deep-red);
-            font-weight: 600;
-            margin-bottom: 2rem;
-            padding: 1rem;
-            background: rgba(212, 175, 55, 0.1);
-            border-radius: 8px;
-            border: 1px solid var(--primary-gold);
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--matcha-green);
+            color: var(--paper-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid var(--matcha-green);
         }
 
-        .contact-info {
+        .cta-button:hover {
+            background: transparent;
+            color: var(--matcha-green);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px var(--subtle-shadow);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            position: relative;
+            padding-left: 2rem;
+            padding-top: 2rem;
+        }
+
+        .katana-silhouette {
+            position: relative;
+            width: 480px;
+            height: 600px;
+            opacity: 0.2;
+            animation: float 6s ease-in-out infinite;
+            transform: translateX(-150px);
+        }
+
+        .katana-blade {
+            position: absolute;
+            width: 6px;
+            height: 420px;
+            background: linear-gradient(180deg, var(--matcha-green), var(--sumi-black));
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            border: none;
+            outline: none;
+        }
+
+        .katana-guard {
+            position: absolute;
+            width: 30px;
+            height: 9px;
+            background: var(--sumi-black);
+            left: 50%;
+            top: 412px;
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+
+        .katana-handle {
+            position: absolute;
+            width: 12px;
+            height: 135px;
+            background: linear-gradient(180deg, var(--sumi-black), #4a4a4a);
+            left: 50%;
+            top: 427px;
+            transform: translateX(-50%);
+            border-radius: 0 0 6px 6px;
+        }
+
+        .katana-wrap {
+            position: absolute;
+            width: 15px;
+            height: 3px;
+            background: var(--matcha-green);
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 1.5px;
+        }
+
+        .katana-wrap:nth-of-type(2) { top: 295px; }
+        .katana-wrap:nth-of-type(3) { top: 305px; }
+        .katana-wrap:nth-of-type(4) { top: 315px; }
+        .katana-wrap:nth-of-type(5) { top: 325px; }
+        .katana-wrap:nth-of-type(6) { top: 335px; }
+        .katana-wrap:nth-of-type(7) { top: 345px; }
+        .katana-wrap:nth-of-type(8) { top: 355px; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--sumi-black);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: var(--matcha-green);
+            margin: 1rem auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: flex-start;
+        }
+
+        .philosophy-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--matcha-green);
+            font-weight: 400;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--silver-gray);
+            line-height: 1.7;
+        }
+
+        .philosophy-card {
+            background: var(--paper-white);
+            padding: 2rem;
+            box-shadow: 0 4px 20px var(--subtle-shadow);
+            border-left: 4px solid var(--matcha-green);
+        }
+
+        .philosophy-card .kanji {
+            font-size: 3rem;
+            color: var(--matcha-green);
+            display: block;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .philosophy-card h4 {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--sumi-black);
+        }
+
+        /* Head Instructor Card */
+        .instructor-card {
+            background: var(--paper-white);
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px var(--subtle-shadow);
+            border-left: 4px solid var(--deep-indigo);
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .instructor-card .title {
             font-size: 1rem;
-            color: var(--charcoal);
-            background: rgba(245, 245, 220, 0.8);
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 4px solid var(--primary-gold);
+            color: var(--deep-indigo);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .instructor-card .photo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin: 1rem auto 1.5rem;
+            border: 3px solid var(--deep-indigo);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            object-fit: cover;
+            display: block;
+        }
+
+        .instructor-card .name {
+            font-size: 2rem;
+            color: var(--sumi-black);
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .instructor-card .credentials {
+            text-align: center;
+        }
+
+        .instructor-card .credential {
+            margin-bottom: 1.2rem;
+        }
+
+        .instructor-card .credential:last-child {
+            margin-bottom: 0;
+        }
+
+        .instructor-card .rank {
+            font-size: 1.1rem;
+            color: var(--matcha-green);
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .instructor-card .federation {
+            font-size: 0.9rem;
+            color: var(--silver-gray);
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .instructor-card .federation .school {
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .instructor-card .federation .japanese-text {
+            display: block;
+            margin-top: 0.2rem;
+            font-size: 0.85rem;
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            padding: 4rem 2rem;
+            background: var(--matcha-accent);
+        }
+
+        .philosophy-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .philosophy .philosophy-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Responsive adjustments for philosophy cards */
+        @media (max-width: 1200px) {
+            .philosophy .philosophy-cards {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .philosophy .philosophy-cards {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Crossed Swords Graphic - COMMENTED OUT FOR LATER USE
+        .crossed-swords {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            position: relative;
+            height: 150px;
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .crossed-sword-left {
+            position: absolute;
+            transform: rotate(-30deg);
+            transform-origin: 50px 50%;
+        }
+
+        .crossed-sword-right {
+            position: absolute;
+            transform: rotate(30deg);
+            transform-origin: 50px 50%;
+        }
+
+        .crossed-blade-left {
+            position: absolute;
+            width: 4px;
+            height: 140px;
+            background: linear-gradient(180deg, var(--matcha-green), var(--sumi-black));
+            left: 48px;
+            top: 0;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            opacity: 0.15;
+        }
+
+        .crossed-blade-right {
+            position: absolute;
+            width: 4px;
+            height: 140px;
+            background: linear-gradient(180deg, var(--matcha-green), var(--sumi-black));
+            left: 48px;
+            top: 0;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            opacity: 0.15;
+        }
+
+        .crossed-guard-left, .crossed-guard-right {
+            position: absolute;
+            width: 20px;
+            height: 4px;
+            background: var(--sumi-black);
+            left: 40px;
+            top: 138px;
+            border-radius: 2px;
+            opacity: 0.15;
+        }
+
+        .crossed-handle-left, .crossed-handle-right {
+            position: absolute;
+            width: 6px;
+            height: 60px;
+            background: linear-gradient(180deg, var(--sumi-black), #4a4a4a);
+            left: 47px;
+            top: 145px;
+            border-radius: 0 0 3px 3px;
+            opacity: 0.15;
+        }
+
+        .crossed-wrap-left, .crossed-wrap-right {
+            position: absolute;
+            width: 8px;
+            height: 2px;
+            background: var(--matcha-green);
+            left: 46px;
+            border-radius: 1px;
+            opacity: 0.15;
+        }
+        END COMMENTED CROSSED SWORDS GRAPHIC */
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .class-card {
+            background: var(--paper-white);
+            padding: 2rem;
+            box-shadow: 0 4px 20px var(--subtle-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .class-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px var(--subtle-shadow);
+        }
+
+        .class-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--matcha-green);
+        }
+
+        .class-card p {
+            color: var(--silver-gray);
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--paper-white);
+            padding: 5rem 2rem;
+        }
+
+        .contact-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
         }
 
         .contact-info h3 {
-            color: var(--deep-red);
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
+            color: var(--matcha-green);
+            margin-bottom: 1.5rem;
         }
 
-        .email {
-            color: var(--deep-red);
-            text-decoration: none;
-            font-weight: 500;
+        .contact-info p {
+            margin-bottom: 1rem;
+            color: var(--silver-gray);
         }
 
-        .email:hover {
-            color: var(--primary-gold);
+        /* Footer */
+        footer {
+            background: var(--sumi-black);
+            color: var(--paper-white);
+            text-align: center;
+            padding: 2rem 0;
         }
 
-        /* Decorative Elements */
-        .decorative-line {
-            width: 100px;
-            height: 2px;
-            background: linear-gradient(to right, transparent, var(--primary-gold), transparent);
-            margin: 2rem auto;
+        footer .kanji {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            opacity: 0.7;
         }
 
-        /* Japanese Character Background */
-        .background-character {
-            position: absolute;
-            font-size: 15rem;
-            color: var(--primary-gold);
-            opacity: 0.03;
-            z-index: 1;
-            font-weight: 700;
-            user-select: none;
-            pointer-events: none;
-        }
-
-        .bg-char-1 {
-            top: 10%;
-            left: 10%;
-            transform: rotate(-15deg);
-        }
-
-        .bg-char-2 {
-            bottom: 10%;
-            right: 10%;
-            transform: rotate(15deg);
-        }
-
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            body {
-                align-items: flex-start;
-                padding-top: 2rem;
-            }
-            
-            .container {
-                margin: 1rem;
-                padding: 1.5rem;
+            .nav-links {
+                display: none;
             }
 
-            .kamon {
-                width: 80px;
-                height: 80px;
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
 
-            .background-character {
-                font-size: 10rem;
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .classes-grid {
+                grid-template-columns: 1fr;
             }
         }
 
-        @media (max-width: 480px) {
-            body {
-                padding-top: 1rem;
-            }
-            
-            .container {
-                margin: 0.5rem;
-                padding: 1rem;
-            }
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
 
-            .background-character {
-                display: none;
+        /* Fade in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
 </head>
 <body>
-    <!-- Background Characters -->
-    <div class="background-character bg-char-1">誠</div>
-    <div class="background-character bg-char-2">光</div>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="/images/kamon_vector.svg" class="kamon" alt="Seikōkan Kamon">
+                <h1>Seikōkan</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#philosophy">Philosophy</a></li>
+                <li><a href="#classes">Training</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="container">
-        <!-- Kamon (Family Crest) -->
-        <div class="kamon"></div>
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-text fade-in">
+                    <span class="kanji-large japanese-text">誠光館</span>
+                    <h1>Seikōkan</h1>
+                    <p class="subtitle">Toyama-ryu | 戸山流</p>
+                    <p>Traditional Toyama-ryu swordsmanship rooted in the tradition of Budō. Our dojo preserves the practical techniques developed by the founders of Toyama-ryu while honoring the deeper principles of discipline, respect, and personal growth through the way of the sword.</p>
+                    <a href="#classes" class="cta-button">Begin Your Journey</a>
+                </div>
+                <div class="hero-visual fade-in">
+                    <div class="katana-silhouette">
+                        <div class="katana-blade"></div>
+                        <div class="katana-guard"></div>
+                        <div class="katana-handle"></div>
+                        <div class="katana-wrap" style="top: 442px;"></div>
+                        <div class="katana-wrap" style="top: 457px;"></div>
+                        <div class="katana-wrap" style="top: 472px;"></div>
+                        <div class="katana-wrap" style="top: 487px;"></div>
+                        <div class="katana-wrap" style="top: 502px;"></div>
+                        <div class="katana-wrap" style="top: 517px;"></div>
+                        <div class="katana-wrap" style="top: 532px;"></div>
+                    </div>
+                </div>
+                <div class="japanese-characters">
+                    <div class="character makoto"></div>
+                    <div class="character hikari"></div>
+                    <div class="character kan"></div>
+                </div>
+            </div>
+        </section>
 
-        <h1 class="dojo-name">Seikōkan</h1>
-        <p class="japanese-subtitle">誠光館</p>
-        
-        <div class="decorative-line"></div>
-        
-        <h2 class="construction-message">Website Under Construction</h2>
-        
-        <p class="description">
-            We are currently preparing our digital dojo to share the authentic traditions 
-            of Toyama-ryu swordsmanship and classical Japanese martial arts.
-        </p>
-        
-        <div class="coming-soon">
-            Our full website will be available soon, featuring detailed information about 
-            our training programs, philosophy, and the rich heritage of traditional Japanese martial arts.
-        </div>
-        
-        <div class="decorative-line"></div>
-        
-        <div class="contact-info">
-            <h3>For Inquiries</h3>
-            <p>Please contact us at:<br>
-            <a href="mailto:seikokan_toyamaryu@icloud.com" class="email">seikokan_toyamaryu@icloud.com</a></p>
+        <section id="about" class="about">
+            <h2 class="section-title">About Our Dojo</h2>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h3>Toyama-ryu Tradition</h3>
+                    <p>At Seikōkan, we practice the authentic techniques of Toyama-ryu (戸山流), a practical sword school with roots in real combat application. Originally developed for military training, Toyama-ryu emphasizes efficient, effective technique while maintaining the spiritual depth of traditional Japanese martial arts.</p>
+                    <p>Our training balances the practical heritage of this fighting system with the character development and philosophical insights that can make Japanese swordsmanship a lifelong path of learning.</p>
+                </div>
+
+                <div class="instructor-card fade-in">
+                    <div class="title">Head Instructor</div>
+                    <img src="images/Instructor.png" alt="Roger Browning - Head Instructor" class="photo">
+                    <div class="name">Roger Browning</div>
+                    <div class="credentials">
+                        <div class="credential">
+                            <div class="rank">5th Dan :: 五段</div>
+                            <div class="federation">
+                                All Japan Toyama-ryu Iaido Federation
+                                <span class="japanese-text">全日本戸山流居合道連盟</span>
+                            </div>
+                        </div>
+                        <div class="credential">
+                            <div class="rank">2nd Dan :: 二段</div>
+                            <div class="federation">
+                                <span class="school">Toyama-ryu :: 戸山流</span>
+                                Seizankai :: Machida, Tokyo, Japan
+                                <span class="japanese-text">誠斬會、町田市東京都</span>
+                            </div>
+                        </div>
+                        <div class="credential">
+                            <div class="rank">2nd Dan :: 二段</div>
+                            <div class="federation">
+                                <span class="school">Tamiya-ryu :: 田宮流</span>
+                                Gisenkai :: Shimomeguro, Tokyo, Japan
+                                <span class="japanese-text">義仙会、下目黒東京都</span>
+                            </div>
+                        </div>
+                        <div class="credential">
+                            <div class="rank">3rd Dan :: 三段</div>
+                            <div class="federation">
+                                <span class="school">Chito-ryu Karate :: 千唐流空手道</span>
+                                All Kyūshū Karate Association, Kitakyūshū, Fukuoka, Japan
+                                <span class="japanese-text">全九州空手道連合会、北九州市福岡県</span>
+                            </div>
+                        </div>
+                        <div class="credential">
+                            <div class="rank">Black Sash :: Instructor</div>
+                            <div class="federation">
+                                <span class="school">San Bao Pai Kung Fu</span>
+                                Orlando, Florida
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="philosophy" class="philosophy">
+            <h2 class="section-title">Our Philosophy</h2>
+            <div class="philosophy-content">
+                <div class="philosophy-cards">
+                    <div class="philosophy-card fade-in">
+                        <span class="kanji japanese-text">誠</span>
+                        <h4>Makoto - Sincerity</h4>
+                        <p>The heart of our practice lies in sincere dedication to improvement, both in technique and character. True mastery comes from honest self-reflection and persistent effort.</p>
+                    </div>
+                    <div class="philosophy-card fade-in">
+                        <span class="kanji japanese-text">鍛錬</span>
+                        <h4>Tanren - Forging</h4>
+                        <p>Through disciplined practice and repetition, we can forge both our technique and spirit. Like steel refined in fire, continuous training transforms raw potential into mastery.</p>
+                    </div>
+                    <div class="philosophy-card fade-in">
+                        <span class="kanji japanese-text">魂</span>
+                        <h4>Tamashii - Spirit</h4>
+                        <p>The warrior's spirit transcends technique and form. Through dedicated practice, we cultivate an indomitable spirit that remains calm in chaos and finds strength in adversity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="classes" class="classes">
+            <!-- COMMENTED OUT CROSSED SWORDS GRAPHIC FOR LATER USE
+            <div class="crossed-swords">
+                <div class="crossed-sword-left">
+                    <div class="crossed-blade-left"></div>
+                    <div class="crossed-guard-left"></div>
+                    <div class="crossed-handle-left"></div>
+                    <div class="crossed-wrap-left" style="top: 152px;"></div>
+                    <div class="crossed-wrap-left" style="top: 162px;"></div>
+                    <div class="crossed-wrap-left" style="top: 172px;"></div>
+                    <div class="crossed-wrap-left" style="top: 182px;"></div>
+                </div>
+                <div class="crossed-sword-right">
+                    <div class="crossed-blade-right"></div>
+                    <div class="crossed-guard-right"></div>
+                    <div class="crossed-handle-right"></div>
+                    <div class="crossed-wrap-right" style="top: 152px;"></div>
+                    <div class="crossed-wrap-right" style="top: 162px;"></div>
+                    <div class="crossed-wrap-right" style="top: 172px;"></div>
+                    <div class="crossed-wrap-right" style="top: 182px;"></div>
+                </div>
+            </div>
+            -->
+            <h2 class="section-title">Training Programs</h2>
+            <div class="classes-grid">
+                <div class="class-card fade-in">
+                    <h3>Kihon - Foundation</h3>
+                    <p>Introduction to Toyama-ryu basics: wearing a sword, drawing a sword, stances, sheathing a sword, and fundamental cutting techniques. Learn traditional etiquette and the philosophical foundations of our practice.</p>
+                </div>
+                <div class="class-card fade-in">
+                    <h3>Kata & Tameshigiri</h3>
+                    <p>Classical forms (kata) and test cutting practice (tameshigiri). Students refine technique through solo kata and practical cutting exercises using wara (straw mats).</p>
+                </div>
+                <div class="class-card fade-in">
+                    <h3>Kumitachi</h3>
+                    <p>Partner practice developing timing, distance, and tactical awareness. Beginners train with wooden swords (bokken). Once some proficiency is achieved, students can use non-sharp metal swords (mogitō) to practice. Eventually, practitioners progress to sharp swords as skills and control advance.</p>
+                </div>
+                <div class="class-card fade-in">
+                    <h3>Advanced Applications</h3>
+                    <p>Deep study of sword combat applications, advanced kata interpretation, advanced tameshigiri, and teaching methodology.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="contact" class="contact">
+        <div class="contact-content">
+            <div class="contact-info fade-in">
+                <h3>Dojo Information</h3>
+                <p><strong>Location:</strong>
+                <br>
+                Casselberry, FL&nbsp;&nbsp;32702
+                <br>
+                (Contact us for more information)
+                </p>
+
+                <p><strong>Training Schedule:</strong><br>
+                Sunday: 10:00 AM - 11:30 AM</p>
+                
+            </div>
+            <div class="fade-in">
+                <h3>Begin Your Journey</h3>
+                <p>Interested in joining our dojo? We welcome visitors to observe classes and learn more about our training approach.</p>
+                <p>Please contact us to schedule a visit or ask any questions about our programs.</p>
+                <a href="#" class="cta-button" id="contact-button">Contact Us</a>
+            </div>
         </div>
     </div>
+
+    <footer>
+        <div class="kanji japanese-text">誠光館</div>
+        <p>&copy; 2025 Seikōkan Dojo. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Email obfuscation to prevent scraping
+        function initContactButton() {
+            const contactBtn = document.getElementById('contact-button');
+            if (contactBtn) {
+                // Split email parts to avoid detection
+                const user = 'seikokan_toyamaryu';
+                const domain = 'icloud';
+                const extension = 'com';
+                const email = user + '@' + domain + '.' + extension;
+                
+                contactBtn.href = 'mailto:' + email;
+                contactBtn.title = 'Send us an email';
+            }
+        }
+
+        // Simple scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = Math.random() * 0.3 + 's';
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(250, 250, 250, 0.98)';
+            } else {
+                header.style.background = 'rgba(250, 250, 250, 0.95)';
+            }
+        });
+
+        // Initialize contact button when page loads
+        document.addEventListener('DOMContentLoaded', initContactButton);
+    </script>
 </body>
 </html>
