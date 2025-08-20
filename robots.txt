@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /images/.DS_Store
+
+# Sitemap location
+Sitemap: https://seikokan-toyamaryu.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
