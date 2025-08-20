@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>誠光館 | Seikōkan Dojo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" crossorigin="anonymous">
     <style>
         :root {
             --sumi-black: #2c2c2c;
@@ -723,7 +727,7 @@
                 <div class="about-text fade-in">
                     <h3>Toyama-ryu Tradition</h3>
                     <p>At Seikōkan, we practice the authentic techniques of Toyama-ryu (戸山流), a practical sword school with roots in real combat application. Originally developed for military training, Toyama-ryu emphasizes efficient, effective technique while maintaining the spiritual depth of traditional Japanese martial arts.</p>
-                    <p>Our training balances the practical heritage of this fighting system with the character development and philosophical insights that make Japanese swordsmanship a lifelong path of learning.</p>
+                    <p>Our training balances the practical heritage of this fighting system with the character development and philosophical insights that can make Japanese swordsmanship a lifelong path of learning.</p>
                 </div>
 
                 <div class="instructor-card fade-in">
@@ -786,12 +790,12 @@
                     <div class="philosophy-card fade-in">
                         <span class="kanji japanese-text">鍛錬</span>
                         <h4>Tanren - Forging</h4>
-                        <p>Through disciplined practice and repetition, we forge both our technique and spirit. Like steel refined in fire, continuous training transforms raw potential into mastery.</p>
+                        <p>Through disciplined practice and repetition, we can forge both our technique and spirit. Like steel refined in fire, continuous training transforms raw potential into mastery.</p>
                     </div>
                     <div class="philosophy-card fade-in">
                         <span class="kanji japanese-text">魂</span>
                         <h4>Tamashii - Spirit</h4>
-                        <p>The warrior's spirit transcends technique and form. Through years of dedicated practice, we cultivate an indomitable spirit that remains calm in chaos, finds strength in adversity, and embodies the timeless essence of Budō.</p>
+                        <p>The warrior's spirit transcends technique and form. Through dedicated practice, we cultivate an indomitable spirit that remains calm in chaos and finds strength in adversity.</p>
                     </div>
                 </div>
             </div>
@@ -832,7 +836,7 @@
                 </div>
                 <div class="class-card fade-in">
                     <h3>Kumitachi</h3>
-                    <p>Partner practice developing timing, distance, and tactical awareness. Beginners train with wooden swords (bokken). Once some proficiency is achieved, students can use mogitō (non-sharp metal swords) to practice. Eventually, practitioners progress to sharp swords as skills and control advance.</p>
+                    <p>Partner practice developing timing, distance, and tactical awareness. Beginners train with wooden swords (bokken). Once some proficiency is achieved, students can use non-sharp metal swords (mogitō) to practice. Eventually, practitioners progress to sharp swords as skills and control advance.</p>
                 </div>
                 <div class="class-card fade-in">
                     <h3>Advanced Applications</h3>
@@ -846,22 +850,19 @@
         <div class="contact-content">
             <div class="contact-info fade-in">
                 <h3>Dojo Information</h3>
-                <!-- <p><strong>Address:</strong><br>
-                Sasaki Judo<br>
-                3385 S US Hwy 17-92<br>
-                Casselberry, FL&nbsp;&nbsp;32702</p> -->
+                <p><strong>Location:</strong>
+                <br>
+                Casselberry, FL&nbsp;&nbsp;32702</p>
 
                 <p><strong>Training Schedule:</strong><br>
-                Sunday: 10:00 AM - 12:00 PM</p>
+                Sunday: 10:00 AM - 11:30 AM</p>
                 
-                <p><strong>Contact:</strong><br>
-                Email: seikokan_toyamaryu@icloud.com<br>
             </div>
             <div class="fade-in">
                 <h3>Begin Your Journey</h3>
                 <p>Interested in joining our dojo? We welcome visitors to observe classes and learn more about our training approach.</p>
                 <p>Please contact us to schedule a visit or ask any questions about our programs.</p>
-                <a href="mailto:info@seikokan-dojo.com" class="cta-button">Contact Us</a>
+                <a href="#" class="cta-button" id="contact-button">Contact Us</a>
             </div>
         </div>
     </div>
@@ -872,6 +873,21 @@
     </footer>
 
     <script>
+        // Email obfuscation to prevent scraping
+        function initContactButton() {
+            const contactBtn = document.getElementById('contact-button');
+            if (contactBtn) {
+                // Split email parts to avoid detection
+                const user = 'seikokan_toyamaryu';
+                const domain = 'icloud';
+                const extension = 'com';
+                const email = user + '@' + domain + '.' + extension;
+                
+                contactBtn.href = 'mailto:' + email;
+                contactBtn.title = 'Send us an email';
+            }
+        }
+
         // Simple scroll animation
         const observerOptions = {
             threshold: 0.1,
@@ -901,6 +917,9 @@
                 header.style.background = 'rgba(250, 250, 250, 0.95)';
             }
         });
+
+        // Initialize contact button when page loads
+        document.addEventListener('DOMContentLoaded', initContactButton);
     </script>
 </body>
 </html>
