@@ -85,7 +85,9 @@
             "name": "Toyama-ryu Training Programs",
             "description": "Traditional Japanese swordsmanship training including Kihon, Kata, Tameshigiri, and Kumitachi"
         },
-        "sameAs": []
+        "sameAs": [
+            "https://www.facebook.com/seikokan.toyamaryu"
+        ]
     }
     </script>
     <style>
@@ -692,6 +694,33 @@
             color: var(--silver-gray);
         }
 
+        /* Social media links */
+        .social-links {
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #1877f2;
+            color: var(--paper-white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+        }
+
+        .social-link:hover {
+            background: #166fe5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(24, 119, 242, 0.3);
+        }
+
+        .social-link:visited {
+            color: var(--paper-white);
+        }
+
         /* Footer */
         footer {
             background: var(--sumi-black);
@@ -1036,6 +1065,16 @@
 
                 <p><strong>Training Schedule:</strong><br>
                 Sunday: 10:00 AM - 11:30 AM</p>
+                
+                <div class="social-links">
+                    <a href="https://www.facebook.com/seikokan.toyamaryu" 
+                       class="social-link" 
+                       target="_blank" 
+                       rel="noopener noreferrer nofollow"
+                       title="Visit our Facebook page">
+                        📘 Facebook
+                    </a>
+                </div>
                 
             </div>
             <div class="fade-in">
