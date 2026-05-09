@@ -239,22 +239,32 @@
             right: 150px;
             display: flex;
             flex-direction: column;
+            align-items: center;
             gap: 25px;
             z-index: 3;
         }
 
         .japanese-characters .character {
             width: 180px;
-            height: 180px;
-            background-size: 100%;
+            background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
             opacity: 0.9;
         }
 
-        .japanese-characters .makoto { background-image: url('images/makoto_sei_scan.png'); }
-        .japanese-characters .hikari { background-image: url('images/hikari_ko_scan.png'); }
-        .japanese-characters .kan { background-image: url('images/kan_scan.png'); }
+        /* Natural proportions per character */
+        .japanese-characters .makoto {
+            background-image: url('images/makoto_sei_scan.png');
+            height: 157px; /* 180 × (2393/2742) */
+        }
+        .japanese-characters .hikari {
+            background-image: url('images/hikari_ko_scan.png');
+            height: 170px; /* 180 × (2372/2510) */
+        }
+        .japanese-characters .kan {
+            background-image: url('images/kan_scan.png');
+            height: 178px; /* 180 × (2540/2571) */
+}
 
         .hero-content {
             max-width: 1000px;
