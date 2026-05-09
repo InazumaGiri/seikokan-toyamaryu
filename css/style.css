@@ -199,7 +199,7 @@ nav {
 }
 
 .japanese-characters .kan {
-    background-image: url('images/kan_scan.png');
+    background-image: url('../images/kan_scan.png');
     height: 178px; /* 180 × (2540 / 2571) */
 }
 
