@@ -189,12 +189,12 @@ nav {
 /* Heights calculated from intrinsic image dimensions:
    height = 180px × (image_height / image_width) */
 .japanese-characters .makoto {
-    background-image: url('images/makoto_sei_scan.png');
+    background-image: url('../images/makoto_sei_scan.png');
     height: 157px; /* 180 × (2393 / 2742) */
 }
 
 .japanese-characters .hikari {
-    background-image: url('images/hikari_ko_scan.png');
+    background-image: url('../images/hikari_ko_scan.png');
     height: 170px; /* 180 × (2372 / 2510) */
 }
 
