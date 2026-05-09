@@ -190,7 +190,7 @@ nav {
    height = 180px × (image_height / image_width) */
 .japanese-characters .makoto {
     background-image: url('../images/makoto_sei_scan.png');
-    height: 157px; /* 180 × (2393 / 2742) */
+    height: 168px; /* 180 × (2393 / 2742) */
 }
 
 .japanese-characters .hikari {
