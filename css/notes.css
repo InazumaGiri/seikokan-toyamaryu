@@ -1,0 +1,161 @@
+/* ============================================================
+   Seikōkan Dojo — Notes (Student Glossary) Stylesheet
+   Extends css/style.css design tokens
+   ============================================================ */
+
+.notes-page {
+    padding-top: 7rem;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 4rem;
+    min-height: 100vh;
+}
+
+.notes-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.notes-header .kanji-small {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.5rem;
+    color: var(--matcha-green);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.notes-header h1 {
+    font-weight: 300;
+    font-size: 2.25rem;
+    color: var(--sumi-black);
+    margin-bottom: 0.5rem;
+}
+
+.notes-header p {
+    color: var(--silver-gray);
+    font-size: 1rem;
+}
+
+/* Search */
+.notes-search {
+    display: block;
+    width: 100%;
+    padding: 0.85rem 1.1rem;
+    margin-bottom: 2.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: var(--paper-white);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--sumi-black);
+    transition: border-color 0.3s ease;
+}
+
+.notes-search:focus {
+    outline: none;
+    border-color: var(--matcha-green);
+}
+
+.notes-search::placeholder {
+    color: var(--silver-gray);
+}
+
+/* Category groups */
+.term-category {
+    margin-bottom: 2.5rem;
+}
+
+.term-category h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--matcha-green);
+    border-bottom: 2px solid var(--matcha-accent);
+    padding-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.term-category.is-empty {
+    display: none;
+}
+
+/* Term rows */
+.term-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.term-row {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr 0.9fr 0.7fr;
+    gap: 1.5rem;
+    align-items: baseline;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.term-row.is-hidden {
+    display: none;
+}
+
+.term-romaji {
+    font-style: italic;
+    color: var(--sumi-black);
+    font-weight: 500;
+}
+
+.term-english {
+    color: var(--silver-gray);
+}
+
+.term-kana {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--sumi-black);
+    font-size: 0.95rem;
+}
+
+.term-kanji {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--matcha-green);
+    font-size: 1.15rem;
+    text-align: right;
+}
+
+.notes-empty-state {
+    text-align: center;
+    color: var(--silver-gray);
+    padding: 3rem 0;
+    display: none;
+}
+
+.notes-back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: var(--matcha-green);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.notes-back-link:hover {
+    text-decoration: underline;
+}
+
+/* ------------------------------------------------------------
+   Responsive
+   ------------------------------------------------------------ */
+@media (max-width: 640px) {
+    .notes-page { padding-top: 6rem; padding-left: 1rem; padding-right: 1rem; }
+    .notes-header h1 { font-size: 1.75rem; }
+
+    .term-row {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 0.3rem;
+        padding: 1rem 0;
+    }
+
+    .term-kana,
+    .term-kanji {
+        text-align: left;
+        font-size: 1.1rem;
+    }
+}

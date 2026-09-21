@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Notes | Seikōkan Dojo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/notes.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/kamon_vector.svg" class="kamon" alt="Seikōkan Kamon">
+                <h1>Seikōkan</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="notes.html">Notes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="notes-page">
+        <a href="index.html" class="notes-back-link">&larr; Back to site</a>
+
+        <div class="notes-header">
+            <span class="kanji-small japanese-text">用語</span>
+            <h1>Class Notes — Terminology</h1>
+            <p>Japanese terms used in class, for student reference.</p>
+        </div>
+
+        <input
+            type="text"
+            id="notes-search"
+            class="notes-search"
+            placeholder="Search a term (romaji or English)&hellip;"
+            autocomplete="off">
+
+        <div id="notes-content"></div>
+        <p id="notes-empty-state" class="notes-empty-state">No terms match your search.</p>
+    </main>
+
+    <footer>
+        <div class="kanji japanese-text">誠光館</div>
+        <p>&copy; 2025 Seikōkan Dojo. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let allData = { categories: [], terms: [] };
+
+        async function loadTerms() {
+            try {
+                const res = await fetch('data/terms.json');
+                if (!res.ok) throw new Error('Failed to load terms.json');
+                allData = await res.json();
+                render();
+            } catch (err) {
+                document.getElementById('notes-content').innerHTML =
+                    '<p class="notes-empty-state" style="display:block;">Could not load the term list. Please check back later.</p>';
+                console.error(err);
+            }
+        }
+
+        function render(filterText) {
+            const container = document.getElementById('notes-content');
+            const emptyState = document.getElementById('notes-empty-state');
+            const query = (filterText || '').trim().toLowerCase();
+
+            const categories = [...allData.categories].sort((a, b) => a.order - b.order);
+            let anyVisible = false;
+
+            container.innerHTML = '';
+
+            categories.forEach(cat => {
+                const terms = allData.terms
+                    .filter(t => t.category === cat.id)
+                    .sort((a, b) => a.order - b.order);
+
+                if (terms.length === 0) return;
+
+                const section = document.createElement('section');
+                section.className = 'term-category';
+
+                const heading = document.createElement('h2');
+                heading.textContent = cat.label;
+                section.appendChild(heading);
+
+                const list = document.createElement('div');
+                list.className = 'term-list';
+
+                let categoryHasVisibleRow = false;
+
+                terms.forEach(term => {
+                    const matches = !query ||
+                        term.romaji.toLowerCase().includes(query) ||
+                        term.english.toLowerCase().includes(query);
+
+                    const row = document.createElement('div');
+                    row.className = 'term-row' + (matches ? '' : ' is-hidden');
+
+                    row.innerHTML = `
+                        <span class="term-romaji">${term.romaji}</span>
+                        <span class="term-english">${term.english}</span>
+                        <span class="term-kana japanese-text">${term.kana}</span>
+                        <span class="term-kanji japanese-text">${term.kanji}</span>
+                    `;
+
+                    if (matches) {
+                        categoryHasVisibleRow = true;
+                        anyVisible = true;
+                    }
+
+                    list.appendChild(row);
+                });
+
+                section.className += categoryHasVisibleRow ? '' : ' is-empty';
+                section.appendChild(list);
+                container.appendChild(section);
+            });
+
+            emptyState.style.display = anyVisible ? 'none' : 'block';
+        }
+
+        document.getElementById('notes-search').addEventListener('input', (e) => {
+            render(e.target.value);
+        });
+
+        document.addEventListener('DOMContentLoaded', loadTerms);
+    </script>
+</body>
+</html>
