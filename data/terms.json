@@ -54,6 +54,11 @@
     { "romaji": "mogitō",          "english": "Blunted metal practice sword",  "kana": "もぎとう",       "kanji": "模擬刀",   "category": "equipment",   "order": 2 },
     { "romaji": "obi",             "english": "Belt / sash",                   "kana": "おび",           "kanji": "帯",       "category": "equipment",   "order": 3 },
     { "romaji": "suburitō",        "english": "Oversized/weighted wooden sword used for swing practice", "kana": "すぶりとう", "kanji": "素振り刀", "category": "equipment", "order": 4 },
+    { "romaji": "hakama",          "english": "Pleated, skirt-like trousers worn over the top",         "kana": "はかま",     "kanji": "袴",       "category": "equipment", "order": 5 },
+    { "romaji": "uwagi",           "english": "The top/jacket, worn with the hakama",                    "kana": "うわぎ",     "kanji": "上着",     "category": "equipment", "order": 6 },
+    { "romaji": "keikogi",         "english": "Practice uniform — the top and hakama collectively",     "kana": "けいこぎ",   "kanji": "稽古着",   "category": "equipment", "order": 7 },
+    { "romaji": "dōgi",            "english": "Martial arts uniform (generic term used across styles)", "kana": "どうぎ",     "kanji": "道着",     "category": "equipment", "order": 8 },
+    { "romaji": "kakuobi",         "english": "Stiff, narrow obi worn with the hakama (firmer than a soft keiko obi)", "kana": "かくおび", "kanji": "角帯", "category": "equipment", "order": 9 },
 
     { "romaji": "saya",            "english": "Scabbard",                                  "kana": "さや",       "kanji": "鞘",     "category": "katana-parts", "order": 1 },
     { "romaji": "koiguchi",        "english": "Mouth of the scabbard (\"carp's mouth\")",  "kana": "こいぐち",   "kanji": "鯉口",   "category": "katana-parts", "order": 2 },
