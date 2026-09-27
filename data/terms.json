@@ -112,6 +112,10 @@
     { "romaji": "battōdō",     "english": "The Way of sword-drawing (modern budō term)",              "kana": "ばっとうどう", "kanji": "抜刀道", "category": "seishin", "order": 13 },
     { "romaji": "battōjutsu",  "english": "The art/technique of sword-drawing (classical term)",       "kana": "ばっとうじゅつ", "kanji": "抜刀術", "category": "seishin", "order": 14 },
     { "romaji": "tanren",      "english": "Forging — disciplined, repetitive training that refines technique and spirit", "kana": "たんれん", "kanji": "鍛錬", "category": "seishin", "order": 15 },
+    { "romaji": "merihari",    "english": "Sharp contrast between tension and release, fast and slow — the dynamic modulation expected in advanced kata (conventionally written in kana only; no standard kanji)", "kana": "めりはり", "kanji": "", "category": "seishin", "order": 16 },
+    { "romaji": "ritsu",       "english": "Law, order, or correctness — the same character as in hōritsu (法律, \"law\"); also carries a sense of rhythm or discipline", "kana": "りつ", "kanji": "律", "category": "seishin", "order": 17 },
+    { "romaji": "kabe",        "english": "Wall",  "kana": "かべ", "kanji": "壁", "category": "seishin", "order": 18 },
+    { "romaji": "jiku",        "english": "Axis",  "kana": "じく", "kanji": "軸", "category": "seishin", "order": 19 },
 
     { "romaji": "kata",    "english": "Shoulder",         "kana": "かた",   "kanji": "肩",   "category": "karada", "order": 1 },
     { "romaji": "te",      "english": "Hand",             "kana": "て",     "kanji": "手",   "category": "karada", "order": 2 },
