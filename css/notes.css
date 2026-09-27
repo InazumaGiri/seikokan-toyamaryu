@@ -73,6 +73,14 @@
     border-bottom: 2px solid var(--matcha-accent);
     padding-bottom: 0.6rem;
     margin-bottom: 0.5rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+}
+
+.term-category h2 .category-kanji {
+    font-size: 1.3rem;
+    color: var(--sumi-black);
 }
 
 .term-category.is-empty {

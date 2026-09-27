@@ -1,17 +1,17 @@
 {
   "categories": [
-    { "id": "reiho",       "label": "Reiho — Etiquette",              "order": 1 },
-    { "id": "kihon",       "label": "Kihon — Fundamentals",           "order": 2 },
-    { "id": "kamae",       "label": "Kamae — Stances",                "order": 3 },
-    { "id": "kata",        "label": "Kata — Forms",                   "order": 4 },
-    { "id": "tameshigiri", "label": "Tameshigiri — Test Cutting",     "order": 5 },
-    { "id": "kumitachi",   "label": "Kumitachi — Partner Practice",   "order": 6 },
-    { "id": "equipment",   "label": "Equipment",                      "order": 7 },
-    { "id": "katana-parts","label": "Katana Parts — Anatomy of the Sword", "order": 8 },
-    { "id": "kazu",        "label": "Kazu — Numbers",                 "order": 9 },
-    { "id": "hoko",        "label": "Hōkō — Direction",               "order": 10 },
-    { "id": "seishin",     "label": "Seishin — Concepts",             "order": 11 },
-    { "id": "karada",      "label": "Karada — Body Parts",            "order": 12 }
+    { "id": "reiho",       "label": "Reiho — Etiquette",              "kanji": "礼法",   "order": 1 },
+    { "id": "kihon",       "label": "Kihon — Fundamentals",           "kanji": "基本",   "order": 2 },
+    { "id": "kamae",       "label": "Kamae — Stances",                "kanji": "構え",   "order": 3 },
+    { "id": "kata",        "label": "Kata — Forms",                   "kanji": "型",     "order": 4 },
+    { "id": "tameshigiri", "label": "Tameshigiri — Test Cutting",     "kanji": "試し斬り", "order": 5 },
+    { "id": "kumitachi",   "label": "Kumitachi — Partner Practice",   "kanji": "組太刀", "order": 6 },
+    { "id": "equipment",   "label": "Equipment",                      "kanji": "道具",   "order": 7 },
+    { "id": "katana-parts","label": "Katana Parts — Anatomy of the Sword", "kanji": "刀の各部", "order": 8 },
+    { "id": "kazu",        "label": "Kazu — Numbers",                 "kanji": "数",     "order": 9 },
+    { "id": "hoko",        "label": "Hōkō — Direction",               "kanji": "方向",   "order": 10 },
+    { "id": "seishin",     "label": "Seishin — Concepts",             "kanji": "精神",   "order": 11 },
+    { "id": "karada",      "label": "Karada — Body Parts",            "kanji": "体",     "order": 12 }
   ],
   "terms": [
     { "romaji": "rei",             "english": "Bow / salutation",              "kana": "れい",           "kanji": "礼",       "category": "reiho",       "order": 1 },

@@ -85,7 +85,11 @@
                 section.className = 'term-category';
 
                 const heading = document.createElement('h2');
-                heading.textContent = cat.label;
+                if (cat.kanji) {
+                    heading.innerHTML = `<span class="category-kanji japanese-text">${cat.kanji}</span>${cat.label}`;
+                } else {
+                    heading.textContent = cat.label;
+                }
                 section.appendChild(heading);
 
                 const list = document.createElement('div');
