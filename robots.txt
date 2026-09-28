@@ -1,9 +1,74 @@
+# Seikōkan Dojo — seikokan-toyamaryu.com
+# Public content is open to all crawlers, including AI search and training bots.
+# The students-only section is intentionally excluded — it also sits behind
+# a Cloudflare Access login, so this is a courtesy signal, not the real gate.
+
 User-agent: *
 Allow: /
-Disallow: /images/.DS_Store
+Disallow: /notes.html
+Disallow: /data/
 
-# Sitemap location
+# --- Classic search engines ---
+User-agent: Googlebot
+Allow: /
+Disallow: /notes.html
+Disallow: /data/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /notes.html
+Disallow: /data/
+
+# --- AI search / answer engines ---
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /notes.html
+Disallow: /data/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /notes.html
+Disallow: /data/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /notes.html
+Disallow: /data/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /notes.html
+Disallow: /data/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /notes.html
+Disallow: /data/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /notes.html
+Disallow: /data/
+
+# --- AI training crawlers (welcomed here; this dojo wants visibility) ---
+User-agent: GPTBot
+Allow: /
+Disallow: /notes.html
+Disallow: /data/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /notes.html
+Disallow: /data/
+
+User-agent: CCBot
+Allow: /
+Disallow: /notes.html
+Disallow: /data/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /notes.html
+Disallow: /data/
+
 Sitemap: https://seikokan-toyamaryu.com/sitemap.xml
-
-# Crawl-delay for respectful crawling
-Crawl-delay: 1
