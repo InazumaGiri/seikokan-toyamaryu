@@ -171,6 +171,7 @@
     { "romaji": "jōwan nitōkin", "english": "Biceps (\"upper arm, two-headed muscle\")", "kana": "じょうわんにとうきん", "kanji": "上腕二頭筋", "category": "karada", "order": 19 },
     { "romaji": "jōwan santōkin", "english": "Triceps (\"upper arm, three-headed muscle\")", "kana": "じょうわんさんとうきん", "kanji": "上腕三頭筋", "category": "karada", "order": 20 },
     { "romaji": "ryōwaki", "english": "Both flanks / both armpits (both sides of the body)", "kana": "りょうわき", "kanji": "両脇", "category": "karada", "order": 21 },
+    { "romaji": "uchimata", "english": "Inner thigh", "kana": "うちまた", "kanji": "内股", "category": "karada", "order": 22 },
     { "romaji": "hitotsu", "english": "One (native counting)", "kana": "ひとつ", "kanji": "一つ", "category": "wago", "order": 1 },
     { "romaji": "futatsu", "english": "Two (native counting)", "kana": "ふたつ", "kanji": "二つ", "category": "wago", "order": 2 },
     { "romaji": "mittsu", "english": "Three (native counting)", "kana": "みっつ", "kanji": "三つ", "category": "wago", "order": 3 },
