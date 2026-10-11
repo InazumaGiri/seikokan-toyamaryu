@@ -22,7 +22,7 @@
     { "romaji": "seiza",           "english": "Formal seated position",        "kana": "せいざ",         "kanji": "正座",     "category": "reiho",       "order": 6 },
     { "romaji": "nukitsuke",       "english": "Initial draw and cut",          "kana": "ぬきつけ",       "kanji": "抜き付け", "category": "kihon",       "order": 1 },
     { "romaji": "furikaburi",      "english": "Raising the sword overhead",    "kana": "ふりかぶり",     "kanji": "振りかぶり", "category": "kihon",     "order": 2 },
-    { "romaji": "kiroshi",         "english": "Cut / cutting stroke",          "kana": "きりおろし",     "kanji": "切り下ろし", "category": "kihon",     "order": 3 },
+    { "romaji": "kirioroshi",         "english": "Cut / cutting stroke",          "kana": "きりおろし",     "kanji": "切り下ろし", "category": "kihon",     "order": 3 },
     { "romaji": "chiburi",         "english": "Blood-flick motion before resheathing", "kana": "ちぶり", "kanji": "血振り",   "category": "kihon",       "order": 4 },
     { "romaji": "nōtō",            "english": "Resheathing the sword",         "kana": "のうとう",       "kanji": "納刀",     "category": "kihon",       "order": 5 },
     { "romaji": "kesa-giri",       "english": "Diagonal cut (shoulder to opposite hip)", "kana": "けさぎり", "kanji": "袈裟斬り", "category": "kihon", "order": 6 },
